@@ -59,10 +59,3 @@ This will stop and remove the containers while preserving your data and configur
 - Ensure that port 8000 is available and not being used by other applications on your system. If needed, you can modify the port mapping in the `docker-compose.yml` file.
 
 Note: This README assumes basic familiarity with Docker and Docker Compose. If you are new to Docker, consider reading the Docker documentation to gain a better understanding of containerization and its usage: [https://docs.docker.com/](https://docs.docker.com/)
-
-## Additional Resources
-
-For more detailed information about the GigihStream API and Database, refer to the respective documentation:
-
-- [GigihStream API Documentation](/docs/api_docs.md)
-- [GigihStream Database Documentation](/docs/database_docs.md)
