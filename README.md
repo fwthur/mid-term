@@ -285,3 +285,59 @@ Error Response:
   "error": "Invalid request data"
 }
 ```
+
+
+# Database Documentation
+
+The database is a NoSQL database based on MongoDB, designed to efficiently handle data related to live videos, products, and user comments. The database consists of three collections: `liveVideo`, `product`, and `Comment`. Each collection has specific fields that store relevant information.
+
+## Collections
+
+### 1. liveVideo Collection
+
+The `liveVideo` collection stores information about live videos available.
+
+**Field Name** | **Data Type** | **Description**
+--- | --- | ---
+_id | ObjectId | Unique identifier for the live video.
+videoImageUrl | String | URL of the video thumbnail image.
+videoTitle | String | Title of the live video.
+videoUsername | String | Username of the user who posted the video.
+
+### 2. product Collection
+
+The `product` collection stores information about products available.
+
+**Field Name** | **Data Type** | **Description**
+--- | --- | ---
+_id | ObjectId | Unique identifier for the product.
+productName | String | Name of the product.
+productPrice | String | Price of the product.
+productLink | String | URL link to the product.
+productImageUrl | String | URL of the product image.
+liveVideoId | ObjectId (Reference) | Reference to the `liveVideo` collection.
+
+### 3. Comment Collection
+
+The `Comment` collection stores comments posted by users on live videos.
+
+**Field Name** | **Data Type** | **Description**
+--- | --- | ---
+_id | ObjectId | Unique identifier for the comment.
+comment | String | Content of the comment.
+avatar | String | URL or path to the user's avatar image.
+username | String | Username of the user who posted the comment.
+liveVideoId | ObjectId (Reference) | Reference to the `liveVideo` collection.
+
+## Relationships
+
+The database has the following relationships between collections:
+
+### One-to-Many Relationship:
+
+1. One liveVideo can have multiple product documents associated with it. The `liveVideoId` in the `product` collection references the corresponding liveVideo.
+2. One liveVideo can have multiple Comment documents associated with it. The `liveVideoId` in the `Comment` collection references the corresponding liveVideo.
+
+## Database Management
+
+The database is based on MongoDB, a powerful NoSQL database. Collections and documents are managed within MongoDB, and relationships are represented using references. This database design allows for efficient storage and retrieval of live video data, product information, and user comments.
